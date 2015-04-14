@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Overview
 ========
 
@@ -64,3 +65,7 @@ Next Steps
 ==========
 
 Read the README file in each of the subdirectories for more information about what goes in those directories.
+=======
+# chef-repo
+Contains recipes for sample envirnment
+>>>>>>> 7a8bbd3695f8b452ffadae931789c1bba3ba6613
