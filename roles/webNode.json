@@ -1,0 +1,10 @@
+{
+  "name": "webNode",
+  "description": "Setup Web Node",
+  "run_list": [
+    "recipe[apt]",
+    "recipe[java]",
+    "recipe[tomcat]",
+    "recipe[setupWebNode]"
+  ]
+}
