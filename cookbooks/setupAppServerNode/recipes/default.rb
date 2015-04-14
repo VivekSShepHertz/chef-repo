@@ -14,3 +14,7 @@ include_recipe "apache2::mod_proxy_http"
 apache_site "default" do
 	enable true
 end
+
+apache2_reverseproxy "tomcat" do
+	proxypass_target 'http://localhost:8080'
+end

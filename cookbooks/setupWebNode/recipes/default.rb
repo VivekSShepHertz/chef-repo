@@ -12,6 +12,7 @@ service 'tomcat6' do
 end
 
 config = data_bag_item("webConfig", "tomcat")
+dbConfig = data_bag_item("dbConfig", "mysql")
 
 directory "#{node["tomcat"]["webapp_dir"]}/ROOT" do
 	recursive true
@@ -21,6 +22,17 @@ end
 remote_file "#{node["tomcat"]["webapp_dir"]}/#{config["warFile"]}" do
 	source config["warURL"]
 	mode '0777'
+end
+
+template "#{node["tomcat"]["webapp_dir"]}/config.properties" do
+	source "config.properties.erb"
+	variables({
+		:user => dbConfig["user"],
+		:port => dbConfig["port"],
+		:password => dbConfig["password"],
+		:address => dbConfig["address"],
+		:dbname => dbConfig["dbName"] 
+	})
 end
 
 service 'tomcat6' do

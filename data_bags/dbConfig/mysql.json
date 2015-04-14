@@ -4,5 +4,6 @@
   "rootPassword": "root",
   "dbName": "database",
   "user": "root",
-  "password": "root"
+  "password": "root",
+  "address": "127.0.0.1"
 }
