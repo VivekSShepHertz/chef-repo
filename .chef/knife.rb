@@ -4,8 +4,10 @@ current_dir = File.dirname(__FILE__)
 log_level                :info
 log_location             STDOUT
 node_name                "suyashmshephertz"
-client_key               "#$JENKINS_HOME/suyashmshephertz.pem"
+client_key               "#{ENV['JENKINS_HOME']}/suyashmshephertz.pem"
 validation_client_name   "shephertztech-validator"
-validation_key           "#$JENKINS_HOME/shephertztech-validator.pem"
-chef_server_url          "https://#$Chef_Pub_IP/organizations/shephertztech"
+validation_key           "#{ENV['JENKINS_HOME']}/shephertztech-validator.pem"
+chef_server_url          "https://#{ENV['Chef_Pub_IP']}/organizations/shephertztech"
 cookbook_path            ["#{current_dir}/../cookbooks"]
+
+#{ENV['Chef_Pub_IP']}
